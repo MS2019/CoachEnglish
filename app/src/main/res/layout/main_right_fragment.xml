@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#3F51B5"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#3F51B5"/>
+
+        <TextView
+            android:id="@+id/phonetic_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/word_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/phonetic_textview"
+            android:layout_alignLeft="@id/phonetic_textview"/>
+
+
+        <TextView
+            android:id="@+id/tran_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phonetic_textview"
+            android:layout_alignLeft="@id/phonetic_textview"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
