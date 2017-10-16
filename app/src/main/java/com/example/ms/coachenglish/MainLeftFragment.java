@@ -70,6 +70,7 @@ public class MainLeftFragment extends Fragment {
                 translation_edit.setText("");
                 mainRightFragment = (MainRightFragment) getFragmentManager().findFragmentById(R.id.main_right_fragment);
                 mainRightFragment.clear();
+
             }
         });
 
@@ -89,7 +90,6 @@ public class MainLeftFragment extends Fragment {
                             workTask = new WorkTask();
                             workTask.execute();          //启动
                         }catch (Exception e) {
-                            Toast.makeText(MyApplication.getContext(), "翻译失败，请检查输入或网络连接", Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
                     }
@@ -107,7 +107,7 @@ public class MainLeftFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (TextUtils.isEmpty(translation_edit.getText().toString())) {
-                    Toast.makeText(MyApplication.getContext(), "收藏失败，请输入", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyApplication.getContext(), "请输入翻译内容", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     if(TextUtils.isEmpty(phonetic) && TextUtils.isEmpty(tran)){
@@ -152,7 +152,7 @@ public class MainLeftFragment extends Fragment {
 
                 } catch(Exception e){
                     Looper.prepare();
-                    Toast.makeText(MyApplication.getContext(), "翻译失败,请重新输入", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MyApplication.getContext(), "输入错误", Toast.LENGTH_SHORT).show();
                     Looper.loop();
                     e.printStackTrace();
                 }
