@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -150,7 +151,9 @@ public class MainLeftFragment extends Fragment {
                 phonetic = document.select(".phonetic").first().text();
 
                 } catch(Exception e){
-                    //Toast.makeText(MyApplication.getContext(), "翻译失败,请重新输入", Toast.LENGTH_SHORT).show();
+                    Looper.prepare();
+                    Toast.makeText(MyApplication.getContext(), "翻译失败,请重新输入", Toast.LENGTH_SHORT).show();
+                    Looper.loop();
                     e.printStackTrace();
                 }
                 return null;
