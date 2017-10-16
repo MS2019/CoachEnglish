@@ -24,7 +24,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.litepal.LitePal;
 
-import java.io.IOException;
 
 
 /**
