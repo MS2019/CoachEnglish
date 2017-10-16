@@ -22,6 +22,7 @@
             android:id="@+id/phonetic_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:layout_centerInParent="true"
             android:layout_alignParentLeft="true"/>
 
@@ -29,6 +30,7 @@
             android:id="@+id/word_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
             android:layout_above="@id/phonetic_textview"
             android:layout_alignLeft="@id/phonetic_textview"/>
 
@@ -37,6 +39,7 @@
             android:id="@+id/tran_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="17sp"
             android:layout_below="@id/phonetic_textview"
             android:layout_alignLeft="@id/phonetic_textview"/>
 
