@@ -35,7 +35,6 @@ public class ListLeftFragment extends Fragment {
     private ItemTouchHelperCallback itemTouchHelperCallback;
     private ItemTouchHelper itemTouchHelper;
 
-
     //判断竖屏与横屏
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -120,6 +119,9 @@ public class ListLeftFragment extends Fragment {
             mWordsList.remove(position);
             notifyItemRemoved(position);
             DataSupport.deleteAll(Words.class,"word = ?",word);
+            if(landscape){
+                mainRightFragment.clear();
+            }
             Toast.makeText(MyApplication.getContext(),"删除成功",Toast.LENGTH_SHORT).show();
         }
 
