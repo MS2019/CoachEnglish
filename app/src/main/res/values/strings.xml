@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">海螺查词</string>
+    <string name="listActivity_name">单词本</string>
+    <string name="rightActivity_name">单词释义</string>
 </resources>

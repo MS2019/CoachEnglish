@@ -20,8 +20,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListActivity" />
-        <activity android:name=".RightActivity"></activity>
+        <activity android:name=".ListActivity"
+            android:label="@string/listActivity_name"/>
+        <activity android:name=".RightActivity"
+            android:label="@string/rightActivity_name">
+        </activity>
 
     </application>
 
