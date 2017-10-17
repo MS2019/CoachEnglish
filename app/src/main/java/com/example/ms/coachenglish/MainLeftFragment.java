@@ -62,6 +62,8 @@ public class MainLeftFragment extends Fragment {
         Button translation_button = (Button) view.findViewById(R.id.translation_button);
         Button collection_button = (Button) view.findViewById(R.id.collection_button);
 
+        LitePal.getDatabase();        //创建数据库
+
         //清空
         clear_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,7 +116,6 @@ public class MainLeftFragment extends Fragment {
                     }
                     else{
                         Words words = new Words();
-                        LitePal.getDatabase();
                         words.setWord(word);
                         words.setPhonetic(phonetic);
                         words.setTran(tran);
@@ -150,9 +151,6 @@ public class MainLeftFragment extends Fragment {
                 phonetic = document.select(".phonetic").first().text();
 
                 } catch(Exception e){
-                    Looper.prepare();
-                    Toast.makeText(MyApplication.getContext(), "输入错误", Toast.LENGTH_SHORT).show();
-                    Looper.loop();
                     e.printStackTrace();
                 }
                 return null;
