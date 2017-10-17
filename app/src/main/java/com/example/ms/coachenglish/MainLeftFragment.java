@@ -62,7 +62,7 @@ public class MainLeftFragment extends Fragment {
         Button translation_button = (Button) view.findViewById(R.id.translation_button);
         Button collection_button = (Button) view.findViewById(R.id.collection_button);
 
-        LitePal.getDatabase();        //创建数据库
+        LitePal.getDatabase();        //创建数据
 
         //清空
         clear_button.setOnClickListener(new View.OnClickListener() {
