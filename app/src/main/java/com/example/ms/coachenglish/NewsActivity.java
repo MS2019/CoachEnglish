@@ -141,7 +141,6 @@ public class NewsActivity extends AppCompatActivity {
                         Toast.makeText(MyApplication.getContext(),"收藏失败",Toast.LENGTH_SHORT).show();
                     }
                 }
-                alertDialog.create().cancel();
             }
         });
 
