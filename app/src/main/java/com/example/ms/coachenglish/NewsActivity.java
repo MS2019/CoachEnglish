@@ -19,7 +19,6 @@ import android.widget.Toast;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.lang.reflect.Field;
 
 public class NewsActivity extends AppCompatActivity {
 
@@ -28,7 +27,7 @@ public class NewsActivity extends AppCompatActivity {
     private TextView dialog_word_textview;
     private TextView dialog_phometic_textview;
     private TextView dialog_tran_textview;
-    private CharSequence addedText;
+    private String addedText;
 
     private String word;
     private String phonetic;
@@ -51,12 +50,8 @@ public class NewsActivity extends AppCompatActivity {
         webView.getSettings().setBuiltInZoomControls(true);
         //扩大比例的缩放
         webView.getSettings().setUseWideViewPort(true);
-        //自适应屏幕
-        //webView.getSettings().setUseWideViewPort(true);
-        //webView.getSettings().setLoadWithOverviewMode(true);
 
         registerClipEvents();
-
     }
 
 
@@ -64,10 +59,17 @@ public class NewsActivity extends AppCompatActivity {
     private void registerClipEvents() {
         final ClipboardManager manager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         manager.addPrimaryClipChangedListener(new ClipboardManager.OnPrimaryClipChangedListener() {
+            private long previousTime = 0;
             @Override
             public void onPrimaryClipChanged() {
+                long now = System.currentTimeMillis();
+                if(now - previousTime < 250){
+                    previousTime = now;
+                    return;
+                }
+                previousTime = now;
                 if (manager.hasPrimaryClip() && manager.getPrimaryClip().getItemCount() > 0) {
-                    addedText = manager.getPrimaryClip().getItemAt(0).getText();
+                    addedText = manager.getPrimaryClip().getItemAt(0).getText().toString();
                     if (addedText != null) {
                         dialog(addedText);
                     }
@@ -109,8 +111,6 @@ public class NewsActivity extends AppCompatActivity {
         LayoutInflater inflater = getLayoutInflater();   //填充器
         final View view = inflater.inflate(R.layout.dialog,null);
         alertDialog.setView(view);
-        //alertDialog.setTitle(addedText);
-
         dialog_word_textview = (TextView)view.findViewById(R.id.dialog_word_textview);
         dialog_phometic_textview = (TextView)view.findViewById(R.id.dialog_phometic_textview);
         dialog_tran_textview = (TextView)view.findViewById(R.id.dialog_tran_textview);
@@ -140,21 +140,20 @@ public class NewsActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(MyApplication.getContext(),"收藏失败",Toast.LENGTH_SHORT).show();
                     }
-
                 }
-
+                alertDialog.create().cancel();
             }
         });
-
 
         alertDialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
             }
         });
         alertDialog.show();
     }
+
+
 
 
 
@@ -173,12 +172,10 @@ public class NewsActivity extends AppCompatActivity {
                 Document document = Jsoup.connect(url).timeout(3000).get();
                 tran = document.select(".trans-container").first().text();
                 phonetic = document.select(".phonetic").first().text();
-
             } catch(Exception e){
                 e.printStackTrace();
             }
             return null;
-
         }
 
         @Override
@@ -191,6 +188,5 @@ public class NewsActivity extends AppCompatActivity {
             }
         }
     }
-
 
 }
