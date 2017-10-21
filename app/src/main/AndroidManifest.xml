@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ms.coachenglish">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".MyApplication"
@@ -20,12 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListActivity"
-            android:label="@string/listActivity_name"/>
-        <activity android:name=".RightActivity"
-            android:label="@string/rightActivity_name">
-        </activity>
-
+        <activity
+            android:name=".ListActivity"
+            android:label="@string/listActivity_name" />
+        <activity
+            android:name=".RightActivity"
+            android:label="@string/rightActivity_name"></activity>
+        <activity android:name=".NewsActivity"
+            android:label="China Daily"></activity>
     </application>
 
 </manifest>

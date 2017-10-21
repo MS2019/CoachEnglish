@@ -21,8 +21,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.wordlist_item:
-                Intent intent = new Intent(MainActivity.this,ListActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(MainActivity.this,ListActivity.class);
+                startActivity(intent1);
+                break;
+            case R.id.chinadaily_item:
+                Intent intent2 = new Intent(MainActivity.this,NewsActivity.class);
+                startActivity(intent2);
                 break;
             case R.id.hint_item:
                 Toast.makeText(MainActivity.this,"单词本单词左滑可删除，长按拖动可排序",Toast.LENGTH_SHORT).show();
