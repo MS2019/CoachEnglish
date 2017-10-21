@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent2);
                 break;
             case R.id.hint_item:
-                Toast.makeText(MainActivity.this,"单词本单词左滑可删除，长按拖动可排序",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"单词本单词左滑可删除，长按拖动可排序\n英语新闻长按单词，点复制可翻译或收藏",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.developer_item:
                 Toast.makeText(MainActivity.this,"Developed by MS",Toast.LENGTH_SHORT).show();

@@ -25,7 +25,7 @@
             android:label="@string/listActivity_name" />
         <activity
             android:name=".RightActivity"
-            android:label="@string/rightActivity_name"></activity>
+            android:label="@string/rightActivity_name" />
         <activity android:name=".NewsActivity"
             android:label="China Daily"></activity>
     </application>
