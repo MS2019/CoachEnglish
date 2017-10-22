@@ -26,8 +26,10 @@
         <activity
             android:name=".RightActivity"
             android:label="@string/rightActivity_name" />
-        <activity android:name=".NewsActivity"
-            android:label="China Daily"></activity>
+        <activity
+            android:name=".NewsActivity"
+            android:label="China Daily" />
+
     </application>
 
 </manifest>
